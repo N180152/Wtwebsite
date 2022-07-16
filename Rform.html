@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 60%;
+            height: 1000px;
+            text-align: center;
+            background-image: url('/Users/Vedavathi/Desktop/Ht/sLogo.png');
+        }
+        body{
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+    <script>
+        function check(){
+            var s=document.getElementById("c").checked;
+            var d=document.getElementById("f").value;
+            var k=document.getElementById("l").value;
+            var p = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            var q=/^[0-9]/
+            var l=p.test(d);
+            var l1=p.test(k)
+            var h=q.test(d);
+            var h1=q.test(k);
+            if(s){
+                if(d.length<3){
+                    document.getElementById("f").style.border="4px solid red";
+                    
+                }
+                if(k.length<3){
+                    document.getElementById("l").style.border="4px solid red";
+                }
+                if(l){
+                    document.getElementById("f").style.border="4px solid red";
+                    document.getElementById("z").style.visibility="visible";
+    
+                }
+                if(l1){
+                    document.getElementById("l").style.border="4px solid red";
+                    document.getElementById("zz").style.visibility="visible";
+                }
+                if(h){
+                    document.getElementById("f").style.border="4px solid red";
+                    document.getElementById("z").style.visibility="visible";
+                }
+                if(h1){
+                    document.getElementById("l").style.border="4px solid red";
+                    document.getElementById("zz").style.visibility="visible";
+                }
+            }
+        }
+        function phone() {
+            var k=document.getElementById("u").checked;
+            var l=document.getElementById("i").checked;
+            var q=/^[6-9][0-9][0-9]{4}$/
+            var p=/^[0-9]-[0-9]-[0-9]{4}$/
+            var s=p.test(m);
+            var t=q.test(m);
+            if(k){
+                document.getElementById("y").value="Enter USA Phone number";
+                if(s){
+                document.getElementById("y").Placeholder="USA NUMBER";
+                }
+                if(t){
+                    document.getElementById("y").Placeholder="Indian Number";
+                }
+            }
+            if(l){
+                document.getElementById("y").value="Enter Indian number";
+                if(s){
+                document.getElementById("y").Placeholder="USA NUMBER";
+                }
+                if(t){
+                    document.getElementById("y").Placeholder="Indian Number";
+                }
+            }
+        }
+        function dis(){
+            document.getElementById("p").type="text";
+        }
+        function undis() {
+            document.getElementById("p").type="password";
+        }
+        function  email() {
+            var d=document.getElementById("e").value;
+            p=/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
+            p.test(d);
+            if(p){
+            }
+            else{
+                document.getElementById("e").style.border="3px solid red";
+            }
+        }
+            function hobbie(){
+                var k1=document.getElementById("c1").checked;
+                var k2=document.getElementById("c2").checked;
+                var k3=document.getElementById("c3").checked;
+                var k4=document.getElementById("c4").checked;
+                cosole.log(k1,k2,k3,k4);
+            }
+            function address(){  
+            var num=document.getElementById("add").value;  
+            if (isNaN(num)){  
+            }
+            else{  
+                document.getElementById("add").style.border="2px solid red";
+            }  
+            }
+            function dateof(){ 
+                var userinput = document.getElementById("dob").value;  
+                var dob = new Date(userinput);  
+                if(userinput==null || userinput=='') {  
+                    document.getElementById("message").innerHTML = "**Choose a date please!";    
+                    return false;  
+                } 
+                else 
+                {  
+                    var mmonth_diff = Date.now()-dob.getTime();  
+                    var age_dt = new Date(month_diff);      
+                    var year = age_dt.getUTCFullYear();  
+                    var age = Math.abs(year - 1970);  
+                    return document.getElementById("result").innerHTML ="Age is: " + age + " years. ";  
+                }  
+            }
+            function file(){
+                const fi = document.getElementById('file');
+                if (fi.files.length > 0) {
+                    for (const i = 0; i <= fi.files.length - 1; i++) {
+                        const fsize = fi.files.item(i).size;
+                        const file = Math.round((fsize / 1024));
+                        if (file >= 4096) {
+                            alert("File too Big, please select a file less than 4mb");
+                        } 
+                        else if (file < 2048) {
+                            alert("File too small, please select a file greater than 2mb");
+                        } 
+                        else {
+                            document.getElementById('size').innerHTML = '<b>'+ file + '</b> KB';
+                        }
+                    }
+                }
+            }
+            function ask(){
+                confirm("Are sure to reset!!!");
+            }
+            function change(){
+                confirm("Do you want to submit");
+            }
+    </script>
+</head>
+<body>
+    <div>
+    <form action="/os.php" method="post">
+    <h1 align="center" id="g">FORM</h1>
+    <fieldset>
+        Firstname:<input type="text" id="f" name="n">
+        <label id="z" style="color:red;visibility:hidden">Invalid data !!!!!</label>
+        <br>          
+        Lastname<input type="text" id="l" name="n">          
+        <label id="zz" style="color:red;visibility:hidden">Invalid data !!!!!</label>          
+        <br>        
+        Password: <input type="password" name="n" id="p">
+        <img src="eye-icon.jpg" width="5%" height="5%"id="ic" onmouseover="dis()" onmouseout="undis()">
+    </fieldset>
+    <fieldset>
+        <p>Select your hobbies</p>
+        <input type="checkbox" name="hobbie" id="c1">TV
+        <input type="checkbox" name="hobbie" id="c2">Sports
+        <input type="checkbox" name="hobbie" id="c3">Music
+        <input type="checkbox" name="hobbie" id="c4 ">Yoga
+        <p>Select your phone</p>
+        <select>
+            <option id="u">US</option>
+            <option id="i">India</option>
+            <input type="text" placeholder="Enter phno:" id="y">
+        </select>
+    </fieldset>
+    <fieldset>
+        <b> Enter Date of Birth: <input type="date" id ="dob"> </b>  
+        <span id = "message" style="color:red"> </span> <br><br>    
+        <button type="submit" onclick = "dateof()"> Calculate age </button> <br><br>  
+        <h3 style="color:32A80F" id="result" align="center"></h3>   
+        <br>
+        File<input type="file" if="file" size="50kb" placeholder="Choose a file">
+        <p id="size"></p>
+        <br>
+        Email:<input type="email" nam="n" id="e" placeholder="Enter email">
+        <br>
+        Address:<input type="text" id="add" placeholder="Enter your address">
+        <br>
+        <input type="checkbox" id="c" name="n">          
+        <br>
+        <p>Are you want to reset ?,then reset.</p>
+        <br>
+        <input type="reset" value="r" onfocus="ask()">
+        <br>
+        <h3>Yes I agree with terms of company</h3><input type="checkbox">
+        <input type="submit" value="submit" onmouseover="change()">
+    </form>
+    </div>
+    <script>
+        var p=document.getElementById("c");
+        p.addEventListener('click',check);
+        p.addEventListener('click',phone);
+        p.addEventListener('click',email);
+        p.addEventListener('click',address);
+        p.addEventListener('click',dateof);
+        p.addEventListener('click',file);
+    </script>
+</body>
+</html>
