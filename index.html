@@ -55,6 +55,10 @@
                     document.getElementById("sub").style.display="none";
                 }
             }
+            function call(){
+                name=prompt("Enter Your name");
+                confirm(name);
+            }
     </script>
     </head>
     <body>
@@ -62,7 +66,7 @@
             <div class="main">
                 <h1 style="text-align:center;color:azure">Details</h1>
                 <p style="text-align: center;">Website made by html and css and javascript</p>
-                <a href="index.html" style="display: inline;"><img src="sLogo.png" height="50px" width="50px"></a>
+                <a href="#" style="display: inline;" onclick="call()" id="first"><img src="sLogo.png" height="50px" width="50px"></a>
                 <li><a href="#"><i class="fa fa-fw fa-solid fa-bars" onclick="vertical()" id="c"style="font-size:48px;color:white;margin-left:0px;display: inline;" ></i></a></li>
             </div>
             <nav>
